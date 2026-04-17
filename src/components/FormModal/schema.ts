@@ -1,9 +1,9 @@
 import { object, number, string, date, InferType } from "yup";
 
 export const transactionSchema = object({
-   id: string()
-    .required("O ID é obrigatório")
-    .default(() => crypto.randomUUID()), 
+   id: string(),
+    //.required("O ID é obrigatório")
+    //.default(() => crypto.randomUUID()), 
    title: string()
     .required("O título é obrigatório")
     .min(5, "O título deve conter no mínimo 5 caracteres"),

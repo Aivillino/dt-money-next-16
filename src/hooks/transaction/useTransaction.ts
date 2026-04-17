@@ -1,6 +1,7 @@
 import { createTransaction, getTransactions } from "@/services/transaction";
 import { ITransaction } from "@/types/transaction";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { toast } from "react-toastify";
 
 const QUERY_KEY = "transactions";
 
@@ -10,6 +11,7 @@ const Create = () =>  {
    return useMutation({
       mutationFn: (transaction: ITransaction) => createTransaction(transaction),
       onSuccess: () => {
+        toast.success("Transação criada com sucesso!");
         queryClient.invalidateQueries({ queryKey: [QUERY_KEY] });
       }
    })
